@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+<head>
+  <title>web write</title>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script>
+    $(function () {
+      var $forward = $('#forward'),
+        $reverse = $('#reverse'),
+        $stop = $('#stop'),
+        $right = $('#right'),
+        $left = $('#left');
+      // ajaxing(asyncing) i.e. not refreshing page to take effect
+      //
+      // FORWARD
+      //
+      $forward.mousedown(function () {
+        $.ajax('/forward');
+      });
+      $forward.mouseup(function () {
+        $.ajax('/stop');
+      });
+      //
+      // REVERSE
+      //
+      $reverse.mousedown(function () {
+        $.ajax('/reverse');
+      });
+      $reverse.mouseup(function () {
+        $.ajax('/stop');
+      });
+      //
+      // STOP
+      //
+      $stop.mousedown(function () {
+        $.ajax('/stop');
+      });
+      //
+      // RIGHT
+      //
+      $right.mousedown(function () {
+        $.ajax('/right-down');
+      });
+      $right.mouseup(function () {
+        $.ajax('/right-up');
+      });
+      //
+      // LEFT
+      //
+      $left.mousedown(function () {
+        $.ajax('/left-down');
+      });
+      $left.mouseup(function () {
+        $.ajax('/left-up');
+      });
+    });
+  </script>
+  <style type="text/css">
+    .stop {
+      -webkit-border-top-left-radius: 30px;
+      -webkit-border-bottom-left-radius: 30px;
+
+      font-weight: 400;
+      font-size: 112px;
+      position: absolute;
+      right: 76%;
+      top : 20%;
+    }
+    .reverse {
+      -webkit-border-top-right-radius: 30px;
+      -webkit-border-bottom-right-radius: 30px;
+      -webkit-border-top-left-radius: 30px;
+      -webkit-border-bottom-left-radius: 30px;
+      font-weight: 400;
+      font-size: 112px;
+      position: absolute;
+      right: 40%;
+      top : 20%;
+    }
+    .forward {
+      -webkit-border-top-right-radius: 30px;
+      -webkit-border-bottom-right-radius: 30px;
+      font-weight: 400;
+      font-size: 112px;
+      position: absolute;
+      right: 2.5%;
+      top : 20%;
+    }
+
+    .right {
+      -webkit-border-top-right-radius: 30px;
+      -webkit-border-bottom-right-radius: 30px;
+
+      font-weight: 100;
+      font-size: 112px;
+      position: absolute;
+      right: 2.5%;
+      top : 55%;
+    }
+
+    .left {
+      -webkit-border-top-left-radius: 30px;
+      -webkit-border-bottom-left-radius: 30px;
+      font-weight: 400;
+      font-size: 112px;
+      position: absolute;
+      right: 82%;
+      top :55%;
+    }
+
+    html{
+      background-color: #040404 ;
+    }
+
+    .click{
+      background-color: #878787 ;
+      color : #FBFBFB;
+    }
+  </style>
+</head>
+<body class="style">
+  <button id="forward" class="forward"> forward </button>
+  <button id="reverse" class="reverse"> reverse </button>
+  <button id="stop" class="stop"> stop</button>
+  <button id="left" class="left"> left </button>
+  <button id="right" class="right"> right </button>
+</body>
+</html>
